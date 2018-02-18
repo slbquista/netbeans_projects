@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="patterns_04_strategy">
+  <ClassDiagramComponents>
+    <Class name="Patterns_04_strategy" package="patterns_04_strategy" visibility="public" xPosition="157.0" yPosition="407.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="testPlane" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="testHelecopter" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="testCar" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="testMotorbike" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="Vehicle" package="patterns_04_strategy" visibility="public" xPosition="823.0" yPosition="628.0">
+      <Fields>
+        <Field name="flyingBehaviour" type="FlyingBehaviourI" visibility="package"/>
+        <Field name="drivingBehaviour" type="driving" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="fly" returnType="void" visibility="public"/>
+        <Method name="setFlyingBehaviour" returnType="void" visibility="public">
+          <Argument type="FlyingBehaviourI" name="fb"/>
+        </Method>
+        <Method name="drive" returnType="void" visibility="public"/>
+        <Method name="setDrivingBehaviour" returnType="void" visibility="public">
+          <Argument type="driving" name="db"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Plane" package="patterns_04_strategy" visibility="public" xPosition="394.0" yPosition="628.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Chopper" package="patterns_04_strategy" visibility="public" xPosition="394.0" yPosition="773.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Car" package="patterns_04_strategy" visibility="public" xPosition="1362.0" yPosition="628.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Motorbike" package="patterns_04_strategy" visibility="public" xPosition="1362.0" yPosition="773.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="driveOnRunway" package="drivingBehaviour" visibility="public" xPosition="1097.0" yPosition="96.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="drive" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="driveOnRoad" package="drivingBehaviour" visibility="public" xPosition="1383.0" yPosition="284.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="drive" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FlyWithRotor" package="flyingBehaviour" visibility="public" xPosition="410.0" yPosition="278.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="fly" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FlyWithWings" package="flyingBehaviour" visibility="public" xPosition="696.0" yPosition="86.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="fly" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="driving" package="drivingBehaviour" visibility="public" xPosition="1097.0" yPosition="284.0">
+      <Methods>
+        <Method name="drive" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Interface name="FlyingBehaviourI" package="flyingBehaviour" visibility="public" xPosition="696.0" yPosition="284.0">
+      <Methods>
+        <Method name="fly" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="patterns_04_strategy.Car" target="patterns_04_strategy.Vehicle"/>
+    <HasRelation name="drivingBehaviour" source="patterns_04_strategy.Vehicle" target="drivingBehaviour.driving" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="patterns_04_strategy.Plane" target="patterns_04_strategy.Vehicle"/>
+    <IsRelation name="is" source="patterns_04_strategy.Chopper" target="patterns_04_strategy.Vehicle"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="drivingBehaviour.driveOnRoad" target="drivingBehaviour.driving"/>
+    <HasRelation name="flyingBehaviour" source="patterns_04_strategy.Vehicle" target="flyingBehaviour.FlyingBehaviourI" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="flyingBehaviour.FlyWithRotor" target="flyingBehaviour.FlyingBehaviourI"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="flyingBehaviour.FlyWithWings" target="flyingBehaviour.FlyingBehaviourI"/>
+    <IsRelation name="is" source="patterns_04_strategy.Motorbike" target="patterns_04_strategy.Vehicle"/>
+    <UseRelation source="patterns_04_strategy.Vehicle" target="flyingBehaviour.FlyingBehaviourI" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="drivingBehaviour.driveOnRunway" target="drivingBehaviour.driving"/>
+    <UseRelation source="patterns_04_strategy.Vehicle" target="drivingBehaviour.driving" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
