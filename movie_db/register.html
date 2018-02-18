@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<!--
+    Created on : 19-Sep-2017
+    Author     : Finn Turnbull
+-->
+
+<html>
+    <head>
+        <title>Registration</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/movie_home.css" />
+    </head>
+    <body>
+        <div id="header">
+            <div class="inner">
+                <div id="logo">LOGO</div>
+                <nav>
+                    <a href="index.php">Home</a>
+                    <a href="">Register</a>
+                    <a href="login.html">Login</a>
+                </nav>
+            </div>
+        </div>
+        <div id="banner">
+            <h1>Movies</h1>
+            <h3>Database</h3>
+        </div>
+
+        <section class="inner container">
+            <form id="registration_form" name="registration_form" action="registration.php" method="POST"> 
+                <label for="title"><span>First Name:  </span></label>  
+                <input type="text" name="fname" id="fname" />  
+                <label for="title"><span>Last Name: </span></label>  
+                <input type="text" name="lname" id="lname" />  
+                <label for="title"><span>Username: </span></label>  
+                <input type="text" name="username" id="username" />  
+                <label for="title"><span>Password: </span></label>
+                <input type="password" name="password" id="password" />
+                <input type="submit" value="Register" />
+            </form>		
+        </section>
+        <footer>
+            <span id="copy">&copy; Kevin McDonald 2017</span>
+        </footer>
+    </body>
+</html>
