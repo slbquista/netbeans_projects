@@ -33,7 +33,7 @@ public class LinkedList implements IList {
             head = node;
             size++;
             tail = node;
-        }else{
+        } else {
             tail.setNode(node);
             size++;
             tail = node;

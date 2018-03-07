@@ -7,7 +7,7 @@ package binary_search;
 public class Binary_search {
 
     public static void main(String[] args) {
-        testBinarySearch(20);
+        testBinarySearch(94);
     }
     
     public static void testBinarySearch (int searchValue) {
