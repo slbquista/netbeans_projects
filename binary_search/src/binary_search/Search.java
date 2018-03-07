@@ -14,31 +14,24 @@ public class Search {
     }
     
     //Insert pseudo code system here
-    //To convert this from sorting integers to sorting 3 character names into alphabetic order, perhaps assign each letter to it's numeric place in the alphabet, then compare that number
-    //Alternatively convert method to compare strings
-    public int[] binarySearch (int searchValue) {
-        boolean swapMode = true;
-        int sizeOfList = array.length;
-        int numComparisons = sizeOfList - 1;
-        int temp;
+    public int binarySearch (int searchValue) {
+        int numRecords = array.length;
+        int left = 0;
+        int right = numRecords - 1;
+        int position;
         
-        while (swapMode) {
-            swapMode = false;
+        while (left <= right) {
+            position = (left + right) / 2;
             
-            for (int i = 0; i < numComparisons; i++) { // < numComparisons == <= numComparisons - 1
-                if (array[i] > array[i + 1]) {
-                    temp = array[i];
-                    array[i] = array[i + 1];
-                    array[i + 1] = temp;
-                    
-                    swapMode = true;
-                }
+            if (array[position] == searchValue) {
+                return position;
+            } else if (array[position] < searchValue) {
+                left = position + 1;
+            } else {
+                right = position - 1;
             }
-            
-            numComparisons--;
         }
         
-        //Return sorted array
-        return array;
+        return -1;
     }
 }
