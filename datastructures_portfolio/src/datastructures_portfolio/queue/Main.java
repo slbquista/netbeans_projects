@@ -6,18 +6,18 @@ package datastructures_portfolio.queue;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Array Queue");
+        System.out.println("\nArray Queue\n");
         
         IQueue simpleArrayQueue = new ArrayQueue(10);
         for (int i = 0; i < 10; i++) {
             simpleArrayQueue.enqueue(i * 5);
         }
-        System.out.println("Front: " + simpleArrayQueue.peek());
+        System.out.println("Front: " + simpleArrayQueue.peek() + "\n");
         
         while(!simpleArrayQueue.isEmpty()) {
             System.out.println("Dequeue: " + simpleArrayQueue.dequeue());
         }
         
-        System.out.println("=====================");
+        System.out.println("\n=====================");
     }
 }

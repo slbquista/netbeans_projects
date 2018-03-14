@@ -1,6 +1,6 @@
 package linked_lists;
 
-public class MainClass {
+public class Main {
     public static void main(String[] args) {
         //Instantiate our List
         IList list = new LinkedList();

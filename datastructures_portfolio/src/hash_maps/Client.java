@@ -17,10 +17,14 @@ public class Client {
         
         Iterator it = map.entrySet().iterator();
         
+        System.out.println("\nMap keys with respective values:\n");
+        
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
             System.out.println(pair.getKey() + " = " + pair.getValue());
             it.remove();
         }
+        
+        System.out.println("");
     }
 }
