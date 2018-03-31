@@ -1,8 +1,11 @@
-//This class connects to the database, and fills an ArrayList with DeviceRecord objects
-//I guess we do this seperate to the network simulation, and just run it at the start
+package test_array_data;
 
-package network_simulator;
+/**
+ *
+ * @author 1516392
+ */
 
+import customexceptions.NoRecordFound;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,7 +17,8 @@ public class NetworkDevices {
 
     private static ArrayList<DeviceRecord> rnd;
 
-    public NetworkDevices() throws ClassNotFoundException, SQLException {
+    //Connects to database and fills ArrayList with records
+    public NetworkDevices() throws NoRecordFound, SQLException {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
@@ -38,8 +42,21 @@ public class NetworkDevices {
         } catch (SQLException s_) {
             System.out.println(s_.getErrorCode());
         }
-    } 
+    }
+    
+    //Changes the boolean in rnd from offline to online
+    public void turnOn(String macaddress) throws NoRecordFound {
+        for (int i = 0; i < rnd.size(); i++) {
+            if (rnd.get(i).getMacaddress().equalsIgnoreCase(macaddress) && rnd.get(i).isOnline() == false) {
+                rnd.get(i).setOnline(true);
+            }
+        }
+        
+        //As we are currently not returning anything this will always throw - need to only throw when the device is not found!
+        //throw new NoRecordFound("Device not found!");
+    }
 
+    //Displays the elements (dr) of the ArrayList (rnd)
     public void displayDeviceRecords() {
         for (DeviceRecord dr : rnd) {
             System.out.println(dr.toString());

@@ -1,7 +1,7 @@
 //This class holds the device object template which is then used by NetworkDevices
 //This holds all the fields we will be dealing with?
 
-package network_simulator;
+package db_connection;
 
 public class DeviceRecord {
 

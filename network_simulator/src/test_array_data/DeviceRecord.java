@@ -1,19 +1,23 @@
-//This class holds the device object template which is then used by NetworkDevices
-//This holds all the fields we will be dealing with?
+package test_array_data;
 
-package network_simulator;
+/**
+ *
+ * @author 1516392
+ */
 
 public class DeviceRecord {
 
+    // Refactor, encapsulate fields
     private int id;
-    private final String macaddress;
+    private String macaddress;
     private String ipaddress;
     private String addressmode;
     private String nodetype;
     private String nodename;
-    private boolean online;
+    private boolean online ;
 
-     public DeviceRecord(int ID, String MACaddress, String IPaddress, String addressMode, String nodeType, String nodeName) {
+    //Constructor
+    public DeviceRecord(int ID, String MACaddress, String IPaddress, String addressMode, String nodeType, String nodeName) {
         id = ID;
         macaddress = MACaddress;
         ipaddress = IPaddress;
@@ -22,7 +26,7 @@ public class DeviceRecord {
         nodename = nodeName;
         online = false ;
     }
-     
+    
     //Getters
     public String getMacaddress() {
         return macaddress;
@@ -38,16 +42,12 @@ public class DeviceRecord {
     }
     
     @Override
-    public String toString() {
+    public String toString(){
         String status;
-
-        //This is just to output boolean as string
-        if (this.online) {
-            status = "online";
-        } else {
+        if (this.online)
+            status = "online" ;
+        else
             status = "offline";
-        }
-        
         return this.id + " "
                 + this.macaddress + " "
                 + this.ipaddress + " "
@@ -56,4 +56,6 @@ public class DeviceRecord {
                 + this.nodename + " "
                 + status;
     }
+	
+	// Accessors/mutators omitted
 }

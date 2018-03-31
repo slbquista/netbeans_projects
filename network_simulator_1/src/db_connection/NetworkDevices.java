@@ -1,7 +1,7 @@
 //This class connects to the database, and fills an ArrayList with DeviceRecord objects
 //I guess we do this seperate to the network simulation, and just run it at the start
 
-package network_simulator;
+package db_connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

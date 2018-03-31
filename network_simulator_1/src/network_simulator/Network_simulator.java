@@ -1,5 +1,6 @@
 package network_simulator;
 
+import db_connection.NetworkDevices;
 import java.sql.SQLException;
 
 public class Network_simulator {
