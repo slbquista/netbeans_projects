@@ -8,9 +8,5 @@ import java.sql.SQLException;
  */
 
 public class Host {
-    NetworkDevices nd;
-
-    public Host()  throws ClassNotFoundException, SQLException {
-        this.nd = new NetworkDevices();
-    }
+    
 }

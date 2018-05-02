@@ -18,19 +18,6 @@ public class Order {
         this.order = new ArrayList();
     }
     
-//    public boolean add(Item item){
-//        //Add items to collection. This collection is unlikely
-//        //to regularly adjust in size but is not static
-//
-//        Stock stock = Stock.getInstance();
-//        if (stock.getItem(item.name) != null) {
-//            order.add(item);
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-    
     public boolean add(String name){
         //Add items to collection. This collection is unlikely
         //to regularly adjust in size but is not static
@@ -43,19 +30,6 @@ public class Order {
             return false;
         }
     }
-    
-//    public boolean remove(Item item){
-//        //  Iterate through collection and remove item from order if found
-//        //  And return true. Else...
-//        for (int i = 0; i < order.size(); i++) {
-//            if (item.name.equalsIgnoreCase(order.get(i).name)) {
-//                order.remove(item);
-//                return true;
-//            }
-//        }
-//        
-//        return false;
-//    }
     
     public boolean remove(String name){
         //  Iterate through collection and remove item from order if found
@@ -89,17 +63,19 @@ public class Order {
     @Override
     public String toString() {
         String output = "";
-        output += "Order ID: " + id;
+        output += "\nOrder ID: " + id;
         output += "\nCustomer Name: " + customerName;
         output += "\nItems: ";
-        //Iterate through collection of items in order and add them to output
         
+        //Iterate through collection of items in order and add them to output
         for (int i = 0; i < order.size(); i++) {
             output += order.get(i).name;
             output += " - ";
             output += order.get(i).price;
             output += " ";
         }
+        
+        output += "\n";
         
         return output;
     }

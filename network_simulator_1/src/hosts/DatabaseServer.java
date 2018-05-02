@@ -1,13 +1,14 @@
 package hosts;
 
 import db_connection.NetworkDevices;
+import db_connection.DeviceRecord;
 import java.sql.SQLException;
 
 /**
  * @author 1516392
  */
 
-public class Switch {
+public class DatabaseServer {
     NetworkDevices nd;
     int id;
     String macaddress;
@@ -17,11 +18,11 @@ public class Switch {
     String nodename;
     boolean online;
 
-    public Switch(String nodeName) throws ClassNotFoundException, SQLException {
+    public DatabaseServer() throws ClassNotFoundException, SQLException {
         this.nd = NetworkDevices.getInstance();
         
         for (int i = 0; i < nd.getNetworkList().size(); i++) {
-            if (nd.getNetworkList().get(i).getNodename().equalsIgnoreCase(nodeName)) {
+            if (nd.getNetworkList().get(i).getNodename().equalsIgnoreCase("dbsrv")) {
                 this.id = nd.getNetworkList().get(i).getId();
                 this.macaddress = nd.getNetworkList().get(i).getMacaddress();
                 this.ipaddress = nd.getNetworkList().get(i).getIpaddress();
@@ -29,24 +30,6 @@ public class Switch {
                 this.nodetype = nd.getNetworkList().get(i).getNodetype();
                 this.nodename = nd.getNetworkList().get(i).getNodename();
                 this.online = nd.getNetworkList().get(i).isOnline();
-            }
-        }
-    }
-    
-    public void turnOn(String nodeName) {
-        for (int i = 0; i < nd.getNetworkList().size(); i++) {
-            if (nd.getNetworkList().get(i).getNodename().equalsIgnoreCase(nodeName) && nd.getNetworkList().get(i).isOnline() == false) {
-                nd.getNetworkList().get(i).setOnline(true);
-                online = true;
-            }
-        }
-    }
-    
-    public void turnOff(String nodeName) {
-        for (int i = 0; i < nd.getNetworkList().size(); i++) {
-            if (nd.getNetworkList().get(i).getNodename().equalsIgnoreCase(nodeName) && nd.getNetworkList().get(i).isOnline() == true) {
-                nd.getNetworkList().get(i).setOnline(false);
-                online = false;
             }
         }
     }

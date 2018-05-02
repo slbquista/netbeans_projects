@@ -13,8 +13,9 @@ import java.util.ArrayList;
 public class NetworkDevices {
 
     private static ArrayList<DeviceRecord> rnd;
-
-    public NetworkDevices() throws ClassNotFoundException, SQLException {
+    private static NetworkDevices unique;
+    
+    private NetworkDevices() throws ClassNotFoundException, SQLException {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
@@ -23,7 +24,7 @@ public class NetworkDevices {
         }
 
         rnd = new ArrayList<>();
-        
+
         try {
 	    // CAUTION: the connection string needs your ACTUAL user name for connecting to the database!
             // The TABLE NAME used in the SELECT ... must be correct!  
@@ -38,11 +39,23 @@ public class NetworkDevices {
         } catch (SQLException s_) {
             System.out.println(s_.getErrorCode());
         }
-    } 
+    }
+    
+    public static NetworkDevices getInstance() throws ClassNotFoundException, SQLException {
+        if (unique == null) {
+            unique = new NetworkDevices();
+        }
+        
+        return unique;
+    }
 
     public void displayDeviceRecords() {
         for (DeviceRecord dr : rnd) {
             System.out.println(dr.toString());
         }
+    }
+    
+    public ArrayList<DeviceRecord> getNetworkList() {
+        return rnd;
     }
 }

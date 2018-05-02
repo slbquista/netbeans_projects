@@ -24,8 +24,28 @@ public class DeviceRecord {
     }
      
     //Getters
+    public int getId() {
+        return id;
+    }
+    
     public String getMacaddress() {
         return macaddress;
+    }
+
+    public String getIpaddress() {
+        return ipaddress;
+    }
+
+    public String getAddressmode() {
+        return addressmode;
+    }
+
+    public String getNodetype() {
+        return nodetype;
+    }
+
+    public String getNodename() {
+        return nodename;
     }
 
     public boolean isOnline() {
@@ -37,6 +57,7 @@ public class DeviceRecord {
         this.online = online;
     }
     
+    //Following toString method is used by NetworkDevices in the displayDeviceRecords method
     @Override
     public String toString() {
         String status;
@@ -48,12 +69,12 @@ public class DeviceRecord {
             status = "offline";
         }
         
-        return this.id + " "
-                + this.macaddress + " "
-                + this.ipaddress + " "
-                + this.addressmode + " "
-                + this.nodetype + " "
-                + this.nodename + " "
-                + status;
+        return "ID: " + this.id + "\n"
+                + "MAC: " + this.macaddress + "\n"
+                + "IP: " + this.ipaddress + "\n"
+                + "Address Mode: " + this.addressmode + "\n"
+                + "Node Type: " + this.nodetype + "\n"
+                + "Node Name: " + this.nodename + "\n"
+                + "Status: " + status + "\n";
     }
 }
